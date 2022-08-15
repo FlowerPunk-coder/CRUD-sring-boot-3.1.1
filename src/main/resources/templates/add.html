@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1">
+    <meta content="text/html" charset="UTF-8">
+    <title>Add-Edit User</title>
+</head>
+<body>
+<form id="add-form" th:action="@{/add}" th:if="${user == null}" method="post" action="add.html">
+    <p>Добавьте нового пользователя</p>
+    <div>
+        <label for="name">Имя: </label>
+        <input id="name" name="name" type="text" required="required"/>
+    </div>
+    <div>
+        <label for="last-name">Фамилия: </label>
+        <input id="last-name" name="lastName" type="text" required="required"/>
+    </div>
+    <div>
+        <label for="email">email: </label>
+        <input id="email" name="email" type="text" required="required"/>
+    </div>
+    <div>
+        <button id="add" type="submit">Добавить</button>
+    </div>
+    <div>
+        <a th:href="@{/static}" href="index.html"><img alt="back" th:src="@{/images/back.png}"/></a>
+    </div>
+</form>
+
+<form id="edit-form" th:object="${user}" th:action="@{/update}" th:unless="${user == null}"
+      method="post" action="add.html">
+    <p>Редактирование</p>
+    <input th:value="*{id}" name="id" hidden>
+    <div>
+        <label for="edit-name">Имя: </label>
+        <input id="edit-name" th:value="*{name}" name="name" type="text" required="required"/>
+    </div>
+    <div>
+        <label for="edit-last-name">Фамилия: </label>
+        <input id="edit-last-name" th:value="*{lastName}" name="lastName" type="text" required="required"/>
+    </div>
+    <div>
+        <label for="edit-email">Email: </label>
+        <input id="edit-email" th:value="*{email}" name="email" type="text" required="required"/>
+    </div>
+    <div>
+        <button id="edit" type="submit">Изменить</button>
+    </div>
+    <div>
+        <a th:href="@{/static}" href="index.html"><img alt="back" th:src="@{/images/back.png}"/></a>
+    </div>
+</form>
+
+</body>
+</html>
