@@ -1,5 +1,6 @@
 package web311.entity;
 
+
 import javax.persistence.*;
 
 @Entity

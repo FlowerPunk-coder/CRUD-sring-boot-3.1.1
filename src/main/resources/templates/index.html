@@ -26,8 +26,8 @@
         <td><a th:href="@{/edit(id=${user.id})}" href="add.html">
             <img alt="edit-user" th:src="@{/images/edit.png}"/></a>
         </td>
-        <td><a th:href="@{/del(id=${user.id})}" href="index.html">
-            <img alt="del-user" th:src="@{/images/del.png}"/> </a> </td>
+        <td><form th:action="@{/del/{id}(id=${user.id})}" th:method="delete">
+           <button type="submit"><img alt="del-user" th:src="@{/images/del.png}"/></button></form> </td>
     </tr>
     </tbody>
 </table>
